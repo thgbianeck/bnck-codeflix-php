@@ -1,0 +1,52 @@
+{
+    "name": "bnck-admin-catalogo",
+    "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+            "plugins": "git git-flow F-Sy-H zsh-autosuggestions zsh-completions",
+            "omzPlugins": "https://github.com/z-shell/F-Sy-H https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-completions"
+        },
+        "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "felipe.nascimentov.vscode-php",
+                "bmewburn.vscode-intelephense-client",
+                "xdebug.php-debug",
+                "psalm.psalm",
+                "php.mssql",
+                "phpdebugbar.phpdebugbar",
+                "zhuangtongfa.material-theme",
+                "brianlhoward.vscode-php-formatter",
+                "ikapp.vscode-phpunit",
+                "neilbrayfield.php-docblocker",
+                "php.solargraph",
+                "tabnine.tabnine-vscode",
+                "xyz.local-history",
+                "esbenp.prettier-vscode",
+                "ms-azuretools.vscode-docker",
+                "eamodio.gitlens",
+                "mhutchie.git-graph",
+                "usernamehw.errorlens",
+                "jebbs.plantuml",
+                "qhoekman.language-plantuml",
+                "rvest.vs-code-prettier-eslint",
+                "humao.rest-client",
+                "donjayamanne.githistory",
+                "dbaeumer.vscode-eslint",
+                "editorconfig.editorconfig"
+            ],
+            "settings": {
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "brianlhoward.vscode-php-formatter",
+                "php.validate.executablePath": "/usr/local/bin/php",
+                "php.solargraph.languageServerPath": "/usr/local/bin/solargraph"
+            }
+        }
+    },
+    "shutdownAction": "none"
+}
