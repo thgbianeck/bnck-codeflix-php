@@ -1,8 +1,8 @@
 {
-    "name": "bnck-admin-catalogo",
+    "name": "Micro Videos Admin - PHP8",
     "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
     "service": "app",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "/var/www",
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {},
         "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
@@ -38,15 +38,55 @@
                 "humao.rest-client",
                 "donjayamanne.githistory",
                 "dbaeumer.vscode-eslint",
-                "editorconfig.editorconfig"
+                "editorconfig.editorconfig",
+                "michelemelluso.gitignore",
+                "sdras.night-owl"  // Adicionando a extensão do tema Night Owl
             ],
             "settings": {
                 "editor.formatOnSave": true,
-                "editor.defaultFormatter": "brianlhoward.vscode-php-formatter",
                 "php.validate.executablePath": "/usr/local/bin/php",
-                "php.solargraph.languageServerPath": "/usr/local/bin/solargraph"
+                "php.solargraph.languageServerPath": "/usr/local/bin/solargraph",
+                "[php]": {
+                    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+                },
+                "files.exclude": {
+                    "**/.vscode-server": true,
+                    "**/.git": true,
+                    "**/.oh-my-zsh": true,
+                    "**/dist": true,
+                    "**/build": true,
+                    "**/vendor": true,
+                    "**/.cache": true,
+                    "**/.history": true,
+                    "**/.local": true,
+                    "**/.ssh": true,
+                    "**/.gnupg": true,
+                    "**/.config": true,
+                    "**/.dotnet": true,
+                    "**/logs": true,
+                    "**/tmp": true,
+                    "**/coverage": true,
+                    "**/static": true,
+                    "**/storage": true,
+                    "**/bin": true,
+                    "**/obj": true,
+                    "**/out": true,
+                    "*.zwc": true,
+                    "*.zcom*": true,
+                    "**/dbdata": true,
+                    "*zsh*": true,
+                    ".gitconfig": true,
+                    "**/docs": true
+                },
+                "intelephense.files.associations": [
+                    "*.php",
+                    "*.phtml"
+                ],
+                "workbench.colorTheme": "Night Owl" 
             }
         }
     },
+    "postCreateCommand": "zsh /home/www-data/.docker/start.sh",
+    "remoteUser": "www-data",
     "shutdownAction": "none"
 }

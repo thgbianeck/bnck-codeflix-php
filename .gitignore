@@ -1,46 +1,69 @@
+# Dependências
 /vendor/
-node_modules/
+/node_modules/
 npm-debug.log
 yarn-error.log
+
+# Histórico
 .history/
 .history/*
-# Laravel 4 specific
+
+# Laravel 4 específico
 bootstrap/compiled.php
 app/storage/
 
-# Laravel 5 & Lumen specific
+# Laravel 5 & Lumen específico
 public/storage
 public/hot
 
-# Laravel 5 & Lumen specific with changed public path
+# Laravel 5 & Lumen específico com caminho público alterado
 public_html/storage
 public_html/hot
 
+# Chaves de armazenamento
 storage/*.key
+
+# Arquivos de configuração
 .env
 Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.phpunit.result.cache
 docker-compose.override.yml
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
+
+# IDEs e editores
 /.idea
 /.vscode
 .bash_history
+
+# Docker
 .docker/dbdata/
 /.composer
 /.vscode-server
+
+# Configurações do Git
 .gitconfig
+
+# Armazenamento em nuvem
 /storage/cloud
+
+# Diretórios de configuração do sistema
+.gnupg/
+.local/
+.ssh/
+.config/
+.cache/
+
+# DevContainer
+.devcontainer/*
+!.devcontainer/devcontainer.json
+!.devcontainer/docker-compose.yml
+
+# Zsh
+.zcompdump*
+.shell.pre-oh-my-zsh
+.zsh_history
+.zshrc.pre-oh-my-zsh*
+
+# Excluir todos os arquivos da pasta .dotnet e subpastas
+.dotnet/

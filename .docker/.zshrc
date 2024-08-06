@@ -1,5 +1,5 @@
 # Configurações básicas do Oh My Zsh
-export ZSH="/home/node/.oh-my-zsh"
+export ZSH="/home/www-data/.oh-my-zsh"
 
 # Define o tema como Spaceship
 ZSH_THEME="spaceship"

@@ -7,9 +7,6 @@ services:
             - ./.docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
         networks:
             - app-network
-        depends_on:
-            - db
-            - redis
 
     nginx:
         build: .docker/nginx
@@ -17,7 +14,7 @@ services:
         restart: always
         tty: true
         ports:
-            - "8000:80"
+            - "8088:80"
         volumes:
             - .:/var/www
         networks:
@@ -25,27 +22,27 @@ services:
         depends_on:
             - app
 
-    db:
-        build: ./.docker/mysql
-        container_name: bnck-admin-catalogo-db
-        restart: always
-        tty: true
-        ports:
-            - "33006:3306"
-        volumes:
-            - ./.docker/dbdata:/var/lib/mysql
-            - ./.docker/mysql:/docker-entrypoint-initdb.d
-        environment:
-            - MYSQL_DATABASE=code_micro_videos
-            - MYSQL_ROOT_PASSWORD=root
-        networks:
-            - app-network
+    # db:
+    #     build: ./.docker/mysql
+    #     container_name: bnck-admin-catalogo-db
+    #     restart: always
+    #     tty: true
+    #     ports:
+    #         - "33006:3306"
+    #     volumes:
+    #         - ./.docker/dbdata:/var/lib/mysql
+    #         - ./.docker/mysql:/docker-entrypoint-initdb.d
+    #     environment:
+    #         - MYSQL_DATABASE=code_micro_videos
+    #         - MYSQL_ROOT_PASSWORD=root
+    #     networks:
+    #         - app-network
 
-    redis:
-        image: redis:alpine
-        container_name: bnck-admin-catalogo-redis
-        networks:
-            - app-network
+    # redis:
+    #     image: redis:alpine
+    #     container_name: bnck-admin-catalogo-redis
+    #     networks:
+    #         - app-network
 
 networks:
     app-network:
