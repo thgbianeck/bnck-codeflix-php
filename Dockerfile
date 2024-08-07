@@ -1,4 +1,5 @@
-FROM php:8.1.1-fpm
+FROM php:fpm-bullseye
+# FROM php:8.1.1-fpm
 
 # Instalar dependências do PHP
 RUN apt-get update && apt-get install -y \
@@ -7,6 +8,9 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
+    git \
+    curl \
+    zsh \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -24,12 +28,11 @@ WORKDIR /var/www
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copiar o arquivo de configuração do zsh e o script de inicialização
-COPY .docker/.zshrc /home/www-data/.zshrc
-COPY .docker/start.sh /home/www-data/.docker/start.sh
+COPY .docker/start.sh /var/www/.docker/start.sh
 
 # Mudar para o usuário root temporariamente para alterar permissões
 USER root
-RUN chmod +x /home/www-data/.docker/start.sh
+RUN chmod +x /var/www/.docker/start.sh
 
 # Mudar de volta para o usuário www-data
 USER www-data
